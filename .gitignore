@@ -1,3 +1,3 @@
 ### don't track xml files from source 
 cnvsource/rawdata/*.xml 
-cnvsource/cnvout/*.csv
+cnvsource/csvout/*.csv
