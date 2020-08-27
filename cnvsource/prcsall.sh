@@ -7,6 +7,7 @@ infldr=./rawdata
 outfldr=./csvout
 
 for infile in ${infldr}/*.xml; do
-    outcsv="${outfldr}/$(basename $infile xml ).csv"
+    outcsv="${outfldr}/$(basename $infile xml )csv"
+    #echo "--infile ${infile} --outfile ${outcsv}"
     python3 conv_xml2csv.py --infile ${infile} --outfile ${outcsv}
 done

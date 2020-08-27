@@ -41,11 +41,17 @@ csvwriter.writeheader()
 ## for every verse in the file
 print(f'Parsing input {args.infile} to {args.outfile}')
 for child in root:
-    
-    csvwriter.writerow({'book': child.attrib['b'],
-                        'chapter': int(child.attrib['c']),
-                        'verse': int(child.attrib['v']),
-                        'text': child.text })
+    book=child.attrib['b']
+    chapter=int(child.attrib['c'])
+    # some verse #s are combined eg: 15-16, take the first int in the verse id
+    verse=int(child.attrib['v'].split('-')[0])
+
+    #only write out a record if there is verse text
+    if child.text:
+      csvwriter.writerow({'book': book,
+                          'chapter': chapter,
+                          'verse': verse,
+                          'text': child.text })
 
 # be polite and close file 
 csvfile.close()
