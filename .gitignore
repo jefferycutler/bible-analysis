@@ -3,4 +3,4 @@ cnvsource/rawdata/*.xml
 cnvsource/csvout/*.csv
 
 ### don't track config files that may have creds in them
-config.ini
+localdb/dbconn.ini
