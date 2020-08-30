@@ -18,6 +18,8 @@ parser = argparse.ArgumentParser(description=
 parser.add_argument('--infile',help='input xml file path with bible verses',
                                required=True)
 parser.add_argument('--outfile',help='output csv file path', required=True)
+parser.add_argument('--abbr',help='Translation Abbr code of book',
+                             required=True)
 args = parser.parse_args()
 
 #############################################
@@ -33,11 +35,12 @@ root=tree.getroot()
 
 ## prepare our output csv file
 csvfile=open(args.outfile,'w')
-csvfields=['book','chapter','verse','text']
+csvfields=['trns_abbr','book','chapter','verse','text']
 csvwriter=csv.DictWriter(csvfile,fieldnames=csvfields,
                                  quoting=csv.QUOTE_NONNUMERIC)
 csvwriter.writeheader()
 
+trnsAbbr=args.abbr
 ## for every verse in the file
 print(f'Parsing input {args.infile} to {args.outfile}')
 for child in root:
@@ -48,7 +51,8 @@ for child in root:
 
     #only write out a record if there is verse text
     if child.text:
-      csvwriter.writerow({'book': book,
+      csvwriter.writerow({'trns_abbr': trnsAbbr,
+                          'book': book,
                           'chapter': chapter,
                           'verse': verse,
                           'text': child.text })
