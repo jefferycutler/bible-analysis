@@ -4,12 +4,12 @@
 #  and convert to csv using the python script
 #####################################################################
 infldr=./rawdata
-outfldr=./csvout
+outfldr=./clean
 
 for infile in ${infldr}/*.xml; do
 
     ## create the output file name
-    outcsv="${outfldr}/$(basename $infile xml )csv"
+    outcsv="${outfldr}/$(basename $infile xml )txt"
 
     ## the translation abbreviation is part of the file name
     abbr=$(basename -- ${outcsv} | awk -F'[-_]' '{print $2}' )

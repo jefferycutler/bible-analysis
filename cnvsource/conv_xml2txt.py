@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 #############################################
 ## define our argument parser
 parser = argparse.ArgumentParser(description=
-  'Conversion script to convert bible verses xml file to csv')
+  'Conversion script to convert bible verses xml file to | delimted files')
 parser.add_argument('--infile',help='input xml file path with bible verses',
                                required=True)
 parser.add_argument('--outfile',help='output csv file path', required=True)
@@ -34,10 +34,10 @@ tree=ET.parse(args.infile)
 root=tree.getroot()
 
 ## prepare our output csv file
-csvfile=open(args.outfile,'w')
-csvfields=['trns_abbr','book','chapter','verse','text']
-csvwriter=csv.DictWriter(csvfile,fieldnames=csvfields,
-                                 quoting=csv.QUOTE_NONNUMERIC)
+csvfile=open(args.outfile,'w',encoding='utf-8',newline='\n')
+csvfields=['trns_abbr','book','chapter','verse','vtext']
+csvwriter=csv.DictWriter(csvfile,fieldnames=csvfields,delimiter='|',
+                                 quoting=csv.QUOTE_MINIMAL)
 csvwriter.writeheader()
 
 trnsAbbr=args.abbr
@@ -55,7 +55,7 @@ for child in root:
                           'book': book,
                           'chapter': chapter,
                           'verse': verse,
-                          'text': child.text })
+                          'vtext': child.text.strip() })
 
 # be polite and close file 
 csvfile.close()
