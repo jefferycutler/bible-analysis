@@ -15,6 +15,6 @@ for infile in ${infldr}/*.xml; do
     abbr=$(basename -- ${outcsv} | awk -F'[-_]' '{print $2}' )
 
     #echo "--infile ${infile} --outfile ${outcsv} --abbr ${abbr}" #debug line
-    python3 conv_xml2csv.py --infile ${infile} --outfile ${outcsv} --abbr ${abbr}
+    python3 conv_xml2txt.py --infile ${infile} --outfile ${outcsv} --abbr ${abbr}
 
 done

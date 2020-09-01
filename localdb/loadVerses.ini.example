@@ -1,0 +1,20 @@
+; **************************************************
+;  Example Config file for loadVerses.py
+; **************************************************
+
+; Connection info to connect to MySQL database
+[mysql]
+host=examplehost
+user=exampleuser
+password=somepassword
+database=database_with_tables_to_load
+
+; details on the source data files
+[srcdata]
+; The location and file mask to look for files to load
+inputmask=/a/folder/with/files/to/load/*.txt
+; pipe (|) was used because , was proving issues with mysql
+delim=|
+; the character used when an embedded delimiter is in text fields
+enclose="
+
