@@ -3,7 +3,6 @@
 #  Program to load all the verse files found in a folder
 #    This will scan an input wildcard for all files
 #    and try to bulk load them into a mysql database
-#    using a | delimted file.  
 ######################################################
 
 import argparse
@@ -26,7 +25,9 @@ config.read(args.dbcfg)
 db=mysql.connector.connect(host=config['mysql']['host'],
                              user=config['mysql']['user'],
                              password=config['mysql']['password'],
-                             database=config['mysql']['database'] )
+                             database=config['mysql']['database'],
+                             allow_local_infile=True,
+                             autocommit=True )
 cursor=db.cursor()        
 
 loadsql="""load data local infile %s 
@@ -39,12 +40,12 @@ loadsql="""load data local infile %s
 #############################################
 ## load each input file found
 for file in glob.glob(config['srcdata']['inputmask']):
-    print('****************')
-    print(loadsql.format(file,config['srcdata']['delim']
-                             ,config['srcdata']['enclose']))
-    payload=(file,config['srcdata']['delim']
-                             ,config['srcdata']['enclose'])                         
+    print(f'** Loading file {file}')
+    try:
+        cursor.execute(loadsql,(file,config['srcdata']['delim'],
+                                     config['srcdata']['enclose'],))
+        
+    except:
+        print('*** ERROR OCCURED LOADING FILE')
 
-    cursor.execute(loadsql,payload)                         
-
-
+cursor.close()
