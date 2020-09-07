@@ -2,12 +2,23 @@
 ;  Example Config file for loadVerses.py
 ; **************************************************
 
-; Connection info to connect to MySQL database
+; *** Connection info to connect to MySQL database
 [mysql]
 host=examplehost
 user=exampleuser
 password=somepassword
 database=database_with_tables_to_load
+
+; *** GCP key and api call details
+[gcp]
+; the json GCP key for the service account making API requests
+; You need to allow NL API requests to this service account
+servicekey=/a/folder/with/serviceid/key/mykey.json
+
+; Limits the number of times API calls are made per API
+; This acts as a throttle to keep GCP Cloud charges down
+api_sentiment_per_run=5
+api_entity_per_run=5
 
 ; details on the source data files
 [srcdata]

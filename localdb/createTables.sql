@@ -14,20 +14,20 @@ CREATE TABLE `bible_verse` (
 ) ;
 
 ----------------------------------------------
--- For Entity Analysis
+-- For sentiment anlaysis
 CREATE TABLE bible_verse_sentiment (   
     trns_abbr varchar(20) NOT NULL,   
     book varchar(20) NOT NULL,   
     chapter int NOT NULL,   
     verse int NOT NULL,   
     api_call_dt datetime not null,   
-    sentiment_magnitude decimal(5,3),   
-    sentiment_score decimal(5,3),  
+    sentiment_magnitude double,   
+    sentiment_score double,  
     PRIMARY KEY (trns_abbr,book,chapter,verse,api_call_dt) 
 ) ;
 
 ----------------------------------------------
--- For sentiment anlaysis
+-- For Entity Analysis
 CREATE TABLE bible_verse_entity (
   trns_abbr varchar(20) NOT NULL,
   book varchar(20) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE bible_verse_entity (
   api_call_dt datetime not null,
   entity_name varchar(100),
   entity_type varchar(100),
-  entity_salience float, 
+  entity_salience double, 
   PRIMARY KEY (trns_abbr,book,chapter,verse,api_call_dt)
 ) ;
 
@@ -47,6 +47,7 @@ select bv.trns_abbr
       ,bv.book
       ,bv.chapter
       ,bv.verse
+      ,bv.vtext
 from bible_verse bv
   left join bible_verse_entity bve
     on (bv.trns_abbr = bve.trns_abbr 
@@ -60,6 +61,7 @@ select bv.trns_abbr
       ,bv.book
       ,bv.chapter
       ,bv.verse
+      ,bv.vtext
 from bible_verse bv
   left join bible_verse_sentiment bvs
     on (bv.trns_abbr = bvs.trns_abbr 

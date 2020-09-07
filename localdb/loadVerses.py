@@ -14,11 +14,15 @@ import mysql.connector
 ## get our config details, db config etc
 parser = argparse.ArgumentParser(description=
         'pytnon Bulk loader to mysql to load bible verses')
-parser.add_argument('--dbcfg',help='input config ini file',required=True)
+parser.add_argument('--cfg',help='input config ini file',required=True)
 args = parser.parse_args()
 
 config=configparser.ConfigParser()
-config.read(args.dbcfg)
+config.read(args.cfg)
+
+## set some defaults if they don't exist
+srcdelim=config.get('srcdata','delim',fallback='|')
+srcenclose=config.get('srcdata','enclose',fallback='"')
 
 #############################################
 ## setup our mysql connection
@@ -33,6 +37,7 @@ cursor=db.cursor()
 loadsql="""load data local infile %s 
             into table bible_verse 
             fields terminated by %s optionally enclosed by %s 
+            lines terminated by '\r\n'
             ignore 1 lines 
             (trns_abbr, book, chapter, verse, vtext ) ;"""
 
@@ -42,10 +47,9 @@ loadsql="""load data local infile %s
 for file in glob.glob(config['srcdata']['inputmask']):
     print(f'** Loading file {file}')
     try:
-        cursor.execute(loadsql,(file,config['srcdata']['delim'],
-                                     config['srcdata']['enclose'],))
+        cursor.execute(loadsql,(file,srcdelim,srcenclose))
         
-    except:
-        print('*** ERROR OCCURED LOADING FILE')
+    except mysql.connector.Error as err:
+        print('*** ERROR OCCURED LOADING FILE {}'.format(err))
 
 cursor.close()
