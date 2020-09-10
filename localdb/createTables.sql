@@ -37,6 +37,7 @@ CREATE TABLE bible_verse_entity (
   entity_name varchar(100),
   entity_type varchar(100),
   entity_salience double, 
+  entity_wiki_url	varchar(256),
   PRIMARY KEY (trns_abbr,book,chapter,verse,api_call_dt)
 ) ;
 
