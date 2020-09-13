@@ -34,11 +34,12 @@ CREATE TABLE bible_verse_entity (
   chapter int NOT NULL,
   verse int NOT NULL,
   api_call_dt datetime not null,
+  api_sequence tinyint,
   entity_name varchar(100),
   entity_type varchar(100),
   entity_salience double, 
   entity_wiki_url	varchar(256),
-  PRIMARY KEY (trns_abbr,book,chapter,verse,api_call_dt)
+  PRIMARY KEY (trns_abbr,book,chapter,verse,api_call_dt,api_sequence)
 ) ;
 
 ----------------------------------------------

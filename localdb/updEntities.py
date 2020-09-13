@@ -52,7 +52,7 @@ cursor=db.cursor()
 
 fetchsql=f"select * from bible_verse_no_entity limit {apicalls} ;"
 savesql= \
-  "insert into bible_verse_entity values (%s,%s,%s,%s,%s,%s,%s,%s,%s );"
+  "insert into bible_verse_entity values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s );"
 
 rcursor=db.cursor(buffered=True) ## our read cursor
 wcursor=db.cursor()              ## our write cursor     
@@ -69,15 +69,17 @@ for row in rcursor:
     response = client.analyze_entities(document=document)
     
     # for every entity found save a record to the DB
+    seq=0
     for entity in response.entities:
-        print('****')
+        seq+=1
+        print('**************')
         print('    name:{0}'.format(entity.name) )
         print('    type:{0}'.format(enums.Entity.Type(entity.type).name) )
         print('salience:{0}'.format(entity.salience) )
         print('wiki URL:{0}'.format(entity.metadata['wikipedia_url']) )
 
         ## now save that to mysql
-        payload=(row[0],row[1],row[2],row[3],datetime.now(),entity.name,
+        payload=(row[0],row[1],row[2],row[3],datetime.now(),seq,entity.name,
             enums.Entity.Type(entity.type).name, entity.salience,
              entity.metadata['wikipedia_url'] )
         wcursor.execute(savesql,payload)
