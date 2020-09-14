@@ -28,8 +28,3 @@ Similar to the localdb version, this uses GCP's BigQuery as the data platform.
 This is still a work in progress.  More information can be found in the read me
 file in the folder.
 
-# Datastore Version (\datastore)
-Datatore is a NoSQL document database.  I chose this to expand my experience
-with NoSQL data platforms.  This is still a work in progress.  More information
-can be found in the read me file in the folder.
-
