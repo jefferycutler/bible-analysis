@@ -1,0 +1,69 @@
+[
+    {
+      "name": "translation",
+      "mode": "REQUIRED",
+      "type": "STRING",
+      "description": "The translation edition eg: King James Version or KJV"
+    },
+    {
+      "name": "book",
+      "mode": "REQUIRED",
+      "type": "STRING",
+      "description": "The bible book eg: Genesis or GEN "
+    },
+    {
+      "name": "chapter",
+      "mode": "REQUIRED",
+      "type": "INTEGER",
+      "description": "The integer representing the chapter number"
+    },
+    {
+      "name": "verse",
+      "mode": "REQUIRED",
+      "type": "INTEGER",
+      "description": "The integer verse number of the chapter"
+    },
+    {
+      "name": "vtext",
+      "mode": "REQUIRED",
+      "type": "STRING",
+      "description": "The text of the verse"
+    },
+    {
+      "name": "sentiment_magnitude",
+      "mode": "NULLABLE",
+      "type": "NUMERIC",
+      "description": "The sentiment magnitude from the GCP NL sentiment API"
+    },
+    {
+      "name": "sentiment_score",
+      "mode": "NULLABLE",
+      "type": "NUMERIC",
+      "description": "The sentiment score from the GCP NL sentiment API"
+    },
+    {
+      "mode": "REPEATED",
+      "name": "entity",
+      "type": "RECORD",
+      "description": "GCP NL API Entity detection results ",
+      "fields": [
+        {
+          "name": "ename",
+          "type": "STRING"
+        },
+        {
+          "name": "etype",
+          "type": "STRING"
+        },
+        {
+          "name": "salience",
+          "type": "NUMERIC"
+        },
+        {
+          "name": "wiki_url",
+          "type": "STRING"
+        }
+      ]
+    }
+  ]
+  

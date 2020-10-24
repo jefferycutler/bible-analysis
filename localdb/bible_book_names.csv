@@ -1,0 +1,86 @@
+short_name,order_appear,long_name,testament
+GEN,101,Genesis,Old
+EXO,102,Exodus,Old
+LEV,103,Leviticus,Old
+NUM,104,Numbers,Old
+DEU,105,Deuteronomy,Old
+JOS,106,Joshua,Old
+JDG,107,Judges,Old
+RUT,108,Ruth,Old
+1SA,109,1 Samuel,Old
+2SA,110,2 Samuel,Old
+1KI,111,1 Kings,Old
+2KI,112,2 Kings,Old
+1CH,113,1 Chronicals,Old
+2CH,114,2 Chronicles,Old
+EZR,115,Ezra,Old
+NEH,116,Nehemiah,Old
+EST,117,Esther,Old
+JOB,118,Job,Old
+PSA,119,Psalms,Old
+PRO,120,Proverbs,Old
+ECC,121,Ecclesiastes,Old
+SNG,122,Song of Solomon,Old
+ISA,123,Isaiah,Old
+LAM,125,Lamentations,Old
+EZK,126,Ezekiel,Old
+DAN,127,Daniel,Old
+HOS,128,Hosea,Old
+JOL,129,Joel,Old
+AMO,130,Amos,Old
+OBA,131,Obadiah,Old
+JON,132,Jonah,Old
+MIC,133,Micah,Old
+NAM,134,Nahum,Old
+HAB,135,Habakkuk,Old
+ZEP,136,Zephaniah,Old
+HAG,137,Haggai,Old
+ZEC,138,Zechariah,Old
+MAL,139,Malachi,Old
+MAT,201,Matthew,New
+MRK,202,Mark,New
+LUK,203,Luke,New
+JHN,204,John,New
+ACT,205,Acts,New
+ROM,206,Romans,New
+1CO,207,1 Corinthians,New
+2CO,208,2 Corinthians,New
+GAL,209,Galatians,New
+EPH,210,Ephesians,New
+PHP,211,Philippians,New
+COL,212,Colossians,New
+1TH,213,1 Thessalonians,New
+2TH,214,2 Thessalonians,New
+1TI,215,1 Timothy,New
+2TI,216,2 Timothy,New
+TIT,217,Titus,New
+PHM,218,Philemon,New
+HEB,219,Hebrews,New
+JAS,220,James,New
+1PE,221,1 Peter,New
+2PE,222,2 Peter,New
+1JN,223,1 John,New
+2JN,224,2 John,New
+3JN,225,3 John,New
+JUD,226,Jude,New
+REV,227,Revelation,New
+TOB,301,Tobit,Apocrypha
+JDT,302,Judith,Apocrypha
+ESG,303,Additions to Esther,Apocrypha
+WIS,304,Wisdom of Solomon,Apocrypha
+SIR,305,Sirach,Apocrypha
+ECS,306,Ecclesiasticus,Apocrypha
+BAR,307,Baruch,Apocrypha
+JER,308,Letter of Jeremiah,Apocrypha
+S3Y,309,Song of Three Youths,Apocrypha
+SUS,310,Susanna,Apocrypha
+BEL,311,Bel and the Dragon,Apocrypha
+1MA,312,1 Maccabees,Apocrypha
+2MA,313,2 Maccabees,Apocrypha
+3MA,314,3 Maccabees,Apocrypha
+4MA,315,4 Maccabees,Apocrypha
+1ES,316,1 Esdras,Apocrypha
+2ES,317,2 Esdras,Apocrypha
+MAN,318,Prayer of Manasseh,Apocrypha
+APS,319,Additional Psalm,Apocrypha
+ODE,320,Ode,Apocrypha

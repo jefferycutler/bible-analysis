@@ -17,7 +17,7 @@ parser = argparse.ArgumentParser(description=
   'Conversion script to convert bible verses xml file to | delimted files')
 parser.add_argument('--infile',help='input xml file path with bible verses',
                                required=True)
-parser.add_argument('--outfile',help='output csv file path', required=True)
+parser.add_argument('--outfile',help='output delim file path', required=True)
 parser.add_argument('--abbr',help='Translation Abbr code of book',
                              required=True)
 args = parser.parse_args()
