@@ -1,6 +1,6 @@
 ######################################################
-# conv_xml2csv.py
-#  Program to convert bible verse xml files to csv
+# conv_xml2txt.py
+#  Program to convert bible verse xml files to delimited txt
 #   Source xml should be contain a structure like this
 #      <verseFile>
 #        <v b=book c=chapter# v=verse#>verse text</v>
