@@ -32,13 +32,13 @@
     {
       "name": "sentiment_magnitude",
       "mode": "NULLABLE",
-      "type": "NUMERIC",
+      "type": "FLOAT",
       "description": "The sentiment magnitude from the GCP NL sentiment API"
     },
     {
       "name": "sentiment_score",
       "mode": "NULLABLE",
-      "type": "NUMERIC",
+      "type": "FLOAT",
       "description": "The sentiment score from the GCP NL sentiment API"
     },
     {
@@ -57,7 +57,7 @@
         },
         {
           "name": "salience",
-          "type": "NUMERIC"
+          "type": "FLOAT"
         },
         {
           "name": "wiki_url",
